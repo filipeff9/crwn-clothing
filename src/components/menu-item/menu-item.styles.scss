@@ -11,17 +11,18 @@
 
 	&:hover {
 		cursor: pointer;
+		@media (prefers-reduced-motion: no-preference) {
+			& .background-image {
+				transform: scale(1.05);
+				filter: blur(1px) grayscale(60%);
+				transition: all 0.2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+				transition-property: filter, transform;
+			}
 
-		& .background-image {
-			transform: scale(1.1);
-			filter: blur(1px);
-			transition: all 0.2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-			transition-property: filter, transform;
-		}
-
-		& .content {
-			opacity: 0.9;
-			transition: opacity 0.2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+			& .content {
+				opacity: 0.9;
+				transition: opacity 0.2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+			}
 		}
 	}
 
