@@ -1,3 +1,5 @@
 body {
 	font-family: "Heebo";
+	background-color: hsl(40deg 12% 95%);
+	padding: 20px 60px;
 }
