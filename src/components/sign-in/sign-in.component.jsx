@@ -8,6 +8,7 @@ class SignIn extends React.Component {
 	constructor(props) {
 		super(props);
 
+		// email and password will be dynamic as the user types
 		this.state = {
 			email: "",
 			password: "",
@@ -15,6 +16,8 @@ class SignIn extends React.Component {
 	}
 
 	handleSubmit = (event) => {
+		/* The default behaviour of a form submit is to Reload the page
+		We prevent that because we only want to clear the inputs to be the only visual clue */
 		event.preventDefault();
 		this.setState({ email: "", password: "" });
 	};
@@ -53,6 +56,7 @@ class SignIn extends React.Component {
 						<CustomButton type="submit">Sign In</CustomButton>
 						<CustomButton onClick={signInWithGoogle} isGoogleSignIn>
 							Sign In With Google
+							{/*This is passed as props.children or just children*/}
 						</CustomButton>
 					</div>
 				</form>

@@ -12,7 +12,7 @@ class ShopPage extends React.Component {
 	}
 
 	render() {
-		const { collections } = this.state;
+		const { collections } = this.state; //de-structure this.state.collection to a const var
 
 		return (
 			<div className="shop-page">
@@ -23,5 +23,20 @@ class ShopPage extends React.Component {
 		);
 	}
 }
+
+/*
+	- From the collection we only de-structure the id for the key
+		The rest (...) is up to the declaration of the component to get the desired info 
+
+	other: {
+			title: string;
+			routeName: string;
+			items: {
+					id: number;
+					name: string;
+					imageUrl: string;
+					price: number;
+			}[];
+*/
 
 export default ShopPage;

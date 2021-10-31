@@ -10,16 +10,17 @@ import { auth } from "./firebase/firebase.utils";
 
 class App extends React.Component {
 	constructor() {
-		super();
+		super(); //Always necessary with extended classes
 
 		this.state = {
 			currentUser: null,
 		};
 	}
 
-	unsubscribeFromAuth = null;
+	unsubscribeFromAuth = null; //Method delcared
 
 	componentDidMount() {
+		//Observer for the state of the logged in (or not) user
 		this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
 			this.setState({ currentUser: user });
 		});
@@ -40,6 +41,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<Header currentUser={this.state.currentUser} />
+				{/*Switch will only render the 1st Route that matches the current location*/}
 				<Switch>
 					<Route exact path="/" component={HomePage} />
 					<Route path="/shop" component={ShopPage} />

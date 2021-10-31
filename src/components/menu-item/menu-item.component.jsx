@@ -9,7 +9,7 @@ const MenuItem = ({ title, imageUrl, size, linkUrl, history, match }) => (
 	>
 		<div
 			style={{
-				backgroundImage: `url(${imageUrl})`,
+				backgroundImage: `url(${imageUrl})`, //Dynamic style in case the Url changes
 			}}
 			className="background-image"
 		/>
@@ -20,4 +20,10 @@ const MenuItem = ({ title, imageUrl, size, linkUrl, history, match }) => (
 	</div>
 );
 
+/*
+	- withRouter() is an HOC that will provide history, match and location to the component.
+		Those are important in the onClick function to give history the desired Url.
+	- E.G. We are in / and on clicking the hats MenuItem we will be redirected to ${match.url}${linkUrl}
+		in which match.url is / and linkUrl is passed as shops/hats ===> localhost:3000/shops/hats
+*/
 export default withRouter(MenuItem);
