@@ -1,7 +1,7 @@
 import React from "react";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import { signInWithGoogle, auth } from "../../firebase/firebase.utils";
 import "./sign-in.styles.scss";
 
 class SignIn extends React.Component {
@@ -15,11 +15,19 @@ class SignIn extends React.Component {
 		};
 	}
 
-	handleSubmit = (event) => {
+	handleSubmit = async (event) => {
 		/* The default behaviour of a form submit is to Reload the page
 		We prevent that because we only want to clear the inputs to be the only visual clue */
 		event.preventDefault();
-		this.setState({ email: "", password: "" });
+
+		const { email, password } = this.state;
+
+		try {
+			auth.signInWithEmailAndPassword(email, password);
+			this.setState({ email: "", password: "" });
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	handleChange = (event) => {
