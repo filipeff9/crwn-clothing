@@ -8,7 +8,7 @@
 	margin: 4px;
 	font-size: 14px;
 	background-color: black;
-	color: white;
+	color: hsl(40, 12%, 95%);
 	text-transform: uppercase;
 	font-family: "Heebo";
 	font-weight: bolder;
@@ -18,7 +18,7 @@
 	transition-property: background-color, color;
 
 	&:hover {
-		background-color: white;
+		background-color: hsl(40, 12%, 95%);
 		color: black;
 		border: 1px solid black;
 	}
@@ -30,7 +30,7 @@
 
 	&.google-sign-in {
 		background-color: #4185f4;
-		color: white;
+		color: hsl(40, 12%, 95%);
 		border: none;
 
 		&:hover {

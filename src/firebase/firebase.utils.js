@@ -13,11 +13,12 @@ const config = {
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
-	if (!userAuth) return;
+	if (!userAuth) return; //if there is no user passed i'll leave
 
-	const userRef = firestore.doc(`users/${userAuth.uid}`);
-	const snapShot = await userRef.get();
+	const userRef = firestore.doc(`users/${userAuth.uid}`); //refers to the path of this user object in the db
+	const snapShot = await userRef.get(); //gets a copy of the up-to-date user info (to this moment)
 
+	//if the information does not exist it'll create a new entry in the db
 	if (!snapShot.exists) {
 		const { displayName, email } = userAuth;
 		const createdAt = new Date();
@@ -34,7 +35,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 		}
 	}
 
-	return userRef;
+	return userRef; //returns the "pointer" to the object location
 };
 
 firebase.initializeApp(config);
