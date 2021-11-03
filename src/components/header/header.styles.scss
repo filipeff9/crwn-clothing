@@ -8,8 +8,7 @@
 	position: sticky;
 	top: 0;
 	background-color: hsl(40, 12%, 95%);
-	opacity: 95%;
-	backdrop-filter: blur(20px);
+	z-index: 5;
 
 	.logo-container {
 		height: 100%;
