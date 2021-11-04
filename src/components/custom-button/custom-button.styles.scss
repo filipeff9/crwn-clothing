@@ -38,4 +38,16 @@
 			border: none;
 		}
 	}
+
+	&.inverted {
+		background-color: hsl(40, 12%, 95%);
+		color: black;
+		border: 1px solid black;
+
+		&:hover {
+			background-color: black;
+			color: hsl(40, 12%, 95%);
+			border: 1px solid black;
+		}
+	}
 }
