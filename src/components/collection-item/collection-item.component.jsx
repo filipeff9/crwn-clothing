@@ -5,6 +5,7 @@ import CustomButton from "../custom-button/custom-button.component";
 import "./collection-item.styles.scss";
 import { addItem } from "../../redux/cart/cart.actions";
 
+//addItem comes from the cart Reducer
 const CollectionItem = ({ item, addItem }) => {
 	const { name, price, imageUrl } = item;
 	return (
@@ -21,8 +22,10 @@ const CollectionItem = ({ item, addItem }) => {
 	);
 };
 
+//Dispatch is a function that changes the Redux state in a way. item is the Payload
 const mapDispatchToProps = (dispatch) => ({
 	addItem: (item) => dispatch(addItem(item)),
 });
 
+//No mapStateToProps implies that is passed as null
 export default connect(null, mapDispatchToProps)(CollectionItem);

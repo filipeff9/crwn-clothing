@@ -12,8 +12,9 @@ class ShopPage extends React.Component {
 	}
 
 	render() {
-		const { collections } = this.state; //de-structure this.state.collection to a const var
+		const { collections } = this.state; //de-structure this.state.collection to a collections variable
 
+		//.map() will parse each element of the array and return a CollectionPreview item of each one
 		return (
 			<div className="shop-page">
 				{collections.map(({ id, ...other }) => (

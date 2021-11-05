@@ -17,9 +17,13 @@ const CollectionPreview = ({ title, items }) => (
 );
 
 /*
+	- .filter(item, index) will return array items based on a condition, _item has a "_" to simbolize
+	it's not used in .filer() but is still required
+
 	- Only render 4 previews for each collection
+
 	- Again in CollectionItem the "...other" is the remaining 
-		of the item Object content (name,imageUrl,price)
+	of the item Object content (name,imageUrl,price)
 */
 
 export default CollectionPreview;
