@@ -24,3 +24,25 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 
 	return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 };
+
+export const removeItemFromCart = (cartItems, cartItemToRemove) => {
+	const existingCartItem = cartItems.find(
+		(cartItem) => cartItem.id === cartItemToRemove.id
+	);
+
+	if (existingCartItem.quantity === 1) {
+		return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
+	}
+
+	return cartItems.map((cartItem) =>
+		cartItem.id === cartItemToRemove.id
+			? { ...cartItem, quantity: cartItem.quantity - 1 }
+			: cartItem
+	);
+
+	/*
+	- For each cart item find the one that we want to remove based on the id
+	- If the quantity is 1 we will just remove it from all the items
+	- If is greater than 1 for that item we decrease the quantity by 1 and keep the other items the same
+	*/
+};
