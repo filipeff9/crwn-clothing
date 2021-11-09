@@ -3,7 +3,7 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 	const existingCartItem = cartItems.find(
 		(cartItem) => cartItem.id === cartItemToAdd.id
 	);
-	//returns the items of undefined
+	//returns the items or undefined
 
 	//if it already exists
 	if (existingCartItem) {

@@ -1,43 +1,13 @@
 import React from "react";
-import SHOP_DATA from "./shop.data";
-import CollectionPreview from "../../components/collection-preview/collection-preview";
+import { Route } from "react-router";
+import CollectionsOverview from "../../components/collections-overview/collections-overview.component";
+import CollectionPage from "../collection/collection.component";
 
-class ShopPage extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			collections: SHOP_DATA,
-		};
-	}
-
-	render() {
-		const { collections } = this.state; //de-structure this.state.collection to a collections variable
-
-		//.map() will parse each element of the array and return a CollectionPreview item of each one
-		return (
-			<div className="shop-page">
-				{collections.map(({ id, ...other }) => (
-					<CollectionPreview key={id} {...other} />
-				))}
-			</div>
-		);
-	}
-}
-
-/*
-	- From the collection we only de-structure the id for the key
-		The rest (...) is up to the declaration of the component to get the desired info 
-
-	other: {
-			title: string;
-			routeName: string;
-			items: {
-					id: number;
-					name: string;
-					imageUrl: string;
-					price: number;
-			}[];
-*/
+const ShopPage = ({ match }) => (
+	<div className="shop-page">
+		<Route exact path={`${match.path}`} component={CollectionsOverview} />
+		<Route path={`${match.path}/:collectionId`} component={CollectionPage} />
+	</div>
+);
 
 export default ShopPage;
